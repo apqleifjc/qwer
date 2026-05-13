@@ -1,18 +1,135 @@
-## Getting Started
+# 202330112 박상용
+# 8주차(5장)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+- 업캐스팅이란?
+    - 서브 클래스의 레퍼런스를 슈퍼 클래스 레퍼런스에 대입
+    - 슈퍼 클래스 레퍼런스로 서브 클래스 객체를 가리키게 되는 현상
+- 다운캐스팅
+    - 슈퍼 클래스 레퍼런스를 서브 클래스 레퍼런스에 대입
+    - 업캐스팅 된 것을 다시 원래대로 되돌리는 것
+    - 반드시 명시적 타입 변환 지정
+- 메소드 오버라이딩
+    - 서브 클래스에서 슈퍼 클래스의 메소드 중복 작성
+    - 슈퍼 클래스의 메소드 무력화, 항상 서브 클래스에 오버라이딩한 메소드가 실행되도록 보장됨
+    - “메소드 무시하기”로 번역되기도 함
+    - 오버라이딩 조건
+        - 슈퍼 클래스 메소드의 원형(메소드 이름, 인자 타입 및 개수, 리턴 타입) 동일하게 작성
+- 오버라이딩의 목적, 다형성 실현
+- 추상 클래스
+    - 추상 메소드
+        - 메소드의 코드는 없고 원형만 선언
+- 추상 클래스 상속
+    - 추상 클래스를 상속받으면 추상 클래스가 됨
+    - 서브 클래스도 abstract로 선언해야함
+- 추상 클래스 구현
+    - 서브 클래스에서 슈퍼 클래스의 추상 메소드 구현 (오버라이딩)
+    - 추상 클래스를 구현한 서브 클래스는 추상 클래스 아님
+- 추상 클래스의 목적
+    - 상속을 위한 슈퍼 클래스로 활용하는 것
+    - 서브 클래스에서 추상 메소드 구현
+    - 다형성 실현
+- 자바의 인터페이스
+    - 소프트웨어를 규격화된 모듈로 만들고, 인터페이스가
+    - 클래스가 구현해야 할 메소드들이 선언되는 추상형
+    - 인터페이스 선언 : interface 키워드로 선언.
+    - Ex) public interface SerialDriver{}
+- 인터페이스의 구성요소
+    - 상수 : public만 허용, public static final 생략
+    - 추상 메소드 : public
+    - default 메소드
+    - private 메소드
+    - static 메소드
+- 추상 클래스 vs 인터페이스
+    - 공통점
+        - 추상 메소드를 가지고 있어야 한다.
+        - 인스턴스화 할 수 없다 (new 생성자 사용 X)
+        - 상속받아 구현한 구현체의 인스턴스를 사용해야 한다.
+        - 상속한 클래스는 추상 메소드를 반드시 구현하여아 한다.
+# 6장
 
-## Folder Structure
+## 자바의 패키지와 모듈
 
-The workspace contains two folders by default, where:
+- 패키지
+    - 서로 관련된 클래스와 인터페이스를 컴파일한 클래스 파ㅣㄹ
+- 패키지를 만들때 도메인의 역순으로 만든다
+- 자바 패키지 생성하기
+    - 어떤 클래스 파일에서 패키지선언을 생략하면 디폴트 패키지에 속하게된다
+- 패키지의 운영 방법
+    - 패키지 이름은 도메인 기반으로 시작 (일반 관례)형식 : com.회사이름.프로젝트명.기능명
+        - 충돌 방지 (전세계 어디서든 유일한 패키지명 확보 가능) / 모듈별 분리가능
+- String 활용
+    - 스트링 비교, equals()와 compareTo() (메소드)
+        - 스트링 비교에 == 연산자 절대 사용금지 (오류남)
+        - equals() : 스트링이 같으면 true, 아니면 false 리턴
+        - compare() : 스트링이 같은지, 큰지, 작은지를 모두 판단
+    - 공백 제거, String trim()
+    - 키보드나 파일로부터 스트링을 입력 시, 스트링 앞 뒤 공배이 끼는 경우가 많다.
+- StringTokenizer 클래스
+    - 구분 문자를 기준으로 문자열을 분리하는 클래스
+        - 구분 문자 : 문자열을 구분할 때 사용되는 문자
+        - 토큰 : 구분 문자로 분리된 문자열
+- Math 클래스
+    - 기본 산술 연산 메소드를 제공하는 클래스
+    - 모든 메소드는 static으로 선언
+        - 클래스 이름으로 호출가능
+    - Math.random() 메소드로 난수 발생
+        - random()은 0보다 크거나 같고 1.0보다 작은 실수 난수 발생
+    - java.util.Random 클래스를 이용하여 난수 발생 가능
+- 컬렉션의 특징
+    - 컬렉션은 제네릭 기법으로 구현
+    - 제네릭
+        - 특정 타입만 다루지 않고, 여러 종류의 타입으로 변신할 수 있도록 클래스나 메소드를 일반화 시키는 기법
+        - 클래스나 인터페이스 이름에 <E>, <K>, <V> 등 타입 매개변수 포함
+- 제네릭의 기본 개념
+    - 제네릭
+        - 모든 종류의 데이터 타입을 다룰 수 있도록 일반화된 타입 매개 변수로 클래스(인터페이스)나 메소드를 작성하는 기법
+- Stack과 Queue (자료구조 책 다시 볼것)
+    - Stack은 First in, last out 처음 들어간 놈이 제일 마지막에 나옴 (포테이토칩 생각하면 쉬움)
+    - Queue first in, first out 먼저 들어간 놈이 먼저 나옴 (선착순 입장 생각하면 쉬움)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+# 8장
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- 스윙 프레임
+    - JFrame 클래스를 상속받은 클래스 작성
+    - 프레임의 크기 반드시 지정 : setSize() 호출
+    - 프레임을 화면에 출력하는 코드 반드시 필요
+- 스윙 응용프로그램에서 main()의 기능 최소화 바람직
+    - 스윙 응용프로그램이 실행되는 시작점으로서의 기능만
+    - 스윙 프레임을 생성하는 정도의 코드로 최소화
+- 배치 관리자 대표 유형 4가지
+    - FlowLayout 배치 관리자
+        - 컴포넌트가 삽입되는 순서대로 왼쪽에서 오른쪽으로 배치
+        - 배치할 공간이 없으면 아래로 내려와서 반복한다.
+    - BorderLayout 배치 관리자
+        - 컨테이너의 공간을 동,서,남,북,중앙의 5개 영역으로 나눔
+        - 5개 영역 중 응용프로그램에서 지정한 영역에 컴포넌트 배치
+    - GridLayout 배치 관리자
+        - 컨테이너를 프로그램에서 설정한 동일한 크기의 2차원 격자로 나눔
+        - 컴포넌트는 삽입 순서대로 좌에서 우로, 다시 위에서 아래로 배치
+    - CardLayout
+        - 컨테이너의 공간에 카드를 쌓아 놓은 듯이 컴포넌트를 포개어 배치
+- FlowLayout의 생성자
+  - 생성자 : 
+    - FlowLayout()
+    - FlowLayout(int align, int hGap, int vGap)
+  - align : 컴포넌트를 정렬하는 방법 지정. 왼쪽 정렬, 오른쪽 정렬, 중앙 정렬
+  - hGap : 좌우 두 컴포넌트 사이의 수평 간격, 픽셀 단위. 디폴트는 5
+  - vGap : 상하 두 컴포넌트 사이의 수직 간격, 픽셀 단위. 디폴트는 5
+- BorderLayout의 생성자
+  - BorderLayout.NORTH
+  - .SOUTH, .EAST, .WEST, .CENTER
+- GridLayout의 생성자
+  - GridLayout(int rows, int cols)
+  - GridLayout(int rows, int cols, int hGap, int vGap)
+  - rows : 그리드의 행수, 디폴트 1
+  - cols : 그리드의 열수, 디폴트 1
+  - hGap : 좌우 두 컴포넌트 사이의 수평 간격, 픽셀 단위. 디폴트는 0
+  - vGap : 상하 두 컴포넌트 사이의 수직 간격, 픽셀 단위. 디폴트는 0
+- 배치관리자 없는 컨테이너
+  - 배치관리자가 없는 컨테이너가 필요한 경우
+    - 응용프로개름에서 직접 컴포넌트의 크기와 위치를 결정하고자 하는 경우
+      - 컴포넌트의 크기나 위치를 개발자 임의로 결정하고자 하는 경우
+- 컴포넌트의 절대 위치와 크기 설정
+  - 배치관리자가 없는 컨테이너에 컴포넌트를 삽입할 때
+    - 프로그램에서 컴포넌트의 절대 크기와 위치 설정
+    - 컴포넌트들이 서로 겹치게 할 수 있음
